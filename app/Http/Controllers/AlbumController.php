@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class AlbumController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return Album::with('tracks')->get();
+        $albums = Album::select('*')->get();
+        return response()->json($albums);
     }
 
     public function store(Request $request)
