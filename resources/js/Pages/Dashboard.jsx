@@ -3,6 +3,7 @@ import axios from 'axios';
 import AlbumList from './AlbumList';
 import AlbumForm from './AlbumForm';
 import TrackForm from './TrackForm';
+import TrackList from './TrackList';
 
 const Dashboard = () => {
     const [albums, setAlbums] = useState([]);
@@ -33,6 +34,11 @@ const Dashboard = () => {
                     setSelectedAlbumId={setSelectedAlbumId} 
                     refreshAlbums={refreshAlbums} 
                 />
+                {selectedAlbumId && (
+                    <div className="mt-8">
+                        <TrackList albumId={selectedAlbumId} />
+                    </div>
+                )}
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-300 w-1/2 ml-4">
                 <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">Adicionar Novo Álbum</h2>

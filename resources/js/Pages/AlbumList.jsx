@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
+
 const AlbumList = ({ albums, setSelectedAlbumId, refreshAlbums }) => {
     const handleDelete = (albumId) => {
         axios.delete(`/albums/${albumId}`)
