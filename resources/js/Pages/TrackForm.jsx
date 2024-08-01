@@ -6,7 +6,7 @@ const TrackForm = ({ albumId, refreshAlbums }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`/albums/${albumId}/tracks`, { name: trackName })
+        axios.post(`/albums/${albumId}/tracks`, { name: trackName, albumId })
             .then(response => {
                 setTrackName('');
                 refreshAlbums();

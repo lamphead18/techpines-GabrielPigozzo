@@ -10,7 +10,9 @@ class TrackController extends Controller
 {
     public function store(Request $request, Album $album)
     {
-        $track = $album->tracks()->create($request->only('name'));
+        $albumId = $request->input('albumId');
+        $name = $request->input('name');
+        $track = $album->tracks()->insert(['albums_id'=>$albumId, 'name'=>$name]);
         return response()->json($track, 201);
     }
 
